@@ -1,33 +1,117 @@
 @import "tailwindcss";
 
-@layer base {
-  :root {
-    --font-serif: 'Cinzel', Georgia, serif;
-    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  }
+/* Modo noche controlado por la clase .dark en <html> */
+@custom-variant dark (&:where(.dark, .dark *));
 
+/* ---------- Paleta: modo día (papel / tinta / burdeos) ---------- */
+:root {
+  --paper: #f5f1ea;
+  --paper-2: #ece6dc;
+  --card: #fbf9f5;
+  --ink: #1b1916;
+  --ink-2: #4a453e;
+  --muted: #7d766b;
+  --line: #d9d0c2;
+  --accent: #7d1d2c;
+  --accent-hover: #621722;
+  --on-accent: #fbf9f5;
+  --band: #5e1621;
+  --on-band: #f5ece4;
+  color-scheme: light;
+}
+
+/* ---------- Paleta: modo noche (carbón cálido / latón) ---------- */
+.dark {
+  --paper: #131210;
+  --paper-2: #1a1916;
+  --card: #1f1d1a;
+  --ink: #ece6dc;
+  --ink-2: #c2bbaf;
+  --muted: #8d867b;
+  --line: #2f2c27;
+  --accent: #d2a777;
+  --accent-hover: #e2bc92;
+  --on-accent: #131210;
+  --band: #2a1417;
+  --on-band: #f0e6dc;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-on-accent: var(--on-accent);
+  --color-band: var(--band);
+  --color-on-band: var(--on-band);
+
+  --font-serif: "Fraunces Variable", "Iowan Old Style", Georgia, serif;
+  --font-sans: "Inter Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+@layer base {
   html {
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--paper);
+    color: var(--ink);
     font-family: var(--font-sans);
+    transition: background-color 0.35s ease, color 0.35s ease;
   }
 
-  h1, h2, h3, .font-legal {
+  h1, h2, h3 {
     font-family: var(--font-serif);
-    letter-spacing: 0.03em;
+    font-optical-sizing: auto;
+    letter-spacing: -0.015em;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--on-accent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
   }
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-accent px-5 py-3 text-[0.9rem] font-medium text-on-accent transition-colors duration-200 hover:bg-accent-hover;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 border border-ink/25 px-5 py-3 text-[0.9rem] font-medium text-ink transition-colors duration-200 hover:border-ink;
+  }
+
+  .eyebrow {
+    @apply text-[0.72rem] font-medium uppercase tracking-[0.28em] text-accent;
+  }
+
+  .field {
+    @apply w-full border-0 border-b border-line bg-transparent px-0 py-3 text-[0.98rem] text-ink placeholder:text-muted/70 transition-colors focus:border-accent focus:outline-none focus:ring-0;
+  }
+
+  .link-underline {
+    background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+    transition: background-size 0.3s ease, color 0.2s ease;
+  }
+  .link-underline:hover {
+    background-size: 100% 1px;
+  }
 }
-::-webkit-scrollbar-track {
-  background: #0b111e;
-}
-::-webkit-scrollbar-thumb {
-  background: #2a3447;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #c5a880;
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
 }

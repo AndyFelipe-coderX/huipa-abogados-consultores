@@ -1,24 +1,39 @@
 <!doctype html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/logo-huipa.svg" />
-    <title>Huipa Abogados y Consultores | Defensa Legal Especializada para Personas Naturales</title>
-    <meta name="description" content="Estudio jurídico dedicado exclusivamente a la defensa de personas naturales. Especialistas en Derecho Penal, Policial, Disciplinario, Constitucional, Civil, Laboral y Litigación Oral." />
-    <meta name="keywords" content="abogados lima, huipa abogados, defensa penal, derecho policial, habeas corpus, despido laboral, personas naturales, abogados penalistas peru" />
-    
-    <!-- Open Graph / Meta Compartir -->
-    <meta property="og:title" content="Huipa Abogados y Consultores | Defensa Legal para Personas Naturales" />
-    <meta property="og:description" content="Protegemos su libertad, patrimonio y derechos. Asesoría estratégica y litigación oral de alto nivel." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#f5f1ea" />
+
+    <title>Juipa &amp; Asociados · Abogados y Consultores</title>
+    <meta
+      name="description"
+      content="Estudio jurídico dedicado a personas naturales. Derecho penal y procesal penal, policial, constitucional, sancionador y disciplinario, civil, laboral y litigación oral."
+    />
+    <meta property="og:title" content="Juipa & Asociados · Abogados y Consultores" />
+    <meta
+      property="og:description"
+      content="Defendemos a personas, no a corporaciones. Penal, policial, constitucional, disciplinario, civil y laboral."
+    />
     <meta property="og:type" content="website" />
-    
-    <!-- Google Fonts: Cormorant Garamond / Plus Jakarta Sans -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta property="og:locale" content="es_PE" />
+
+    <!-- Aplica el tema (día/noche) antes de pintar para evitar parpadeo -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          if (t === 'dark') {
+            document.documentElement.classList.add('dark');
+            document.querySelector('meta[name="theme-color"]').setAttribute('content', '#131210');
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
-  <body class="bg-[#0b111e] text-slate-100 antialiased selection:bg-[#c5a880] selection:text-[#0b111e]">
+  <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
