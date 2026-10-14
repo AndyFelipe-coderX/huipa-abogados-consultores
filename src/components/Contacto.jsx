@@ -25,17 +25,17 @@ export default function Contacto() {
   const info = [
     {
       icon: Phone,
-      label: 'Teléfono',
-      value: CONTACT_READY ? SITE.phoneDisplay : SOON,
-      href: CONTACT_READY ? `tel:${SITE.phoneHref}` : null
+      label: 'WhatsApp / Teléfono',
+      value: SITE.phoneDisplay,
+      href: waLink('Hola, quisiera realizar una consulta legal.'),
     },
     {
       icon: Mail,
       label: 'Correo',
-      value: CONTACT_READY ? SITE.email : SOON,
-      href: CONTACT_READY ? `mailto:${SITE.email}` : null
+      value: SOON,
+      href: null,
     },
-    { icon: MapPin, label: 'Oficina', value: SITE.address },
+    { icon: MapPin, label: 'Sede', value: SITE.address },
     { icon: Clock, label: 'Horario', value: SITE.hours },
   ];
 

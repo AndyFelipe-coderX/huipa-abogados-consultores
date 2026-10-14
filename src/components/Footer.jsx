@@ -1,5 +1,5 @@
 import { Wordmark } from './Header';
-import { SITE, PRACTICE_AREAS, CONTACT_READY, SOON } from '../data/site';
+import { SITE, PRACTICE_AREAS, CONTACT_READY, SOON, waLink } from '../data/site';
 
 export default function Footer() {
   return (
@@ -33,18 +33,23 @@ export default function Footer() {
               {CONTACT_READY ? (
                 <>
                   <li>
-                    <a href={`tel:${SITE.phoneHref}`} className="link-underline hover:text-ink">
-                      {SITE.phoneDisplay}
+                    <a
+                      href={waLink('Hola, quisiera realizar una consulta.')}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="link-underline hover:text-ink"
+                    >
+                      WhatsApp: {SITE.phoneDisplay}
                     </a>
                   </li>
                   <li>
-                    <a href={`mailto:${SITE.email}`} className="link-underline hover:text-ink">
-                      {SITE.email}
+                    <a href={`tel:${SITE.phoneHref}`} className="link-underline hover:text-ink">
+                      Tel: {SITE.phoneDisplay}
                     </a>
                   </li>
                 </>
               ) : (
-                <li className="italic text-muted">Teléfono y correo: {SOON.toLowerCase()}</li>
+                <li className="italic text-muted">Teléfono: {SOON.toLowerCase()}</li>
               )}
               <li>{SITE.city}</li>
             </ul>

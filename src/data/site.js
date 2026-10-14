@@ -6,18 +6,17 @@
 export const SITE = {
   name: 'Juipa & Asociados',
   tagline: 'Abogados y Consultores',
-  city: 'Lima, Perú',
-  phoneDisplay: '+51 987 654 321',
-  phoneHref: '+51987654321',
-  whatsapp: '51987654321', // sin "+" ni espacios
-  email: 'contacto@juipaabogados.pe',
-  address: 'Lima, Perú · atención presencial previa cita',
+  city: 'Huánuco, Perú',
+  phoneDisplay: '+51 925 544 692',
+  phoneHref: '+51925544692',
+  whatsapp: '51925544692', // sin "+" ni espacios
+  email: '',
+  address: 'Huánuco, Perú · Atención presencial previa cita',
   hours: 'Lunes a viernes, 9:00 a 18:00',
 };
 
-// Cambiar a `true` cuando el estudio tenga teléfono, WhatsApp y correo reales.
-// Mientras sea `false`, la web muestra "Próximamente" y no envía nada a nadie.
-export const CONTACT_READY = false;
+// Se activa la atención directa por WhatsApp y teléfono.
+export const CONTACT_READY = true;
 export const SOON = 'Próximamente';
 
 export const waLink = (message) =>
@@ -183,7 +182,7 @@ export const FAQS = [
     a: 'Su DNI y todo documento relacionado: notificaciones, resoluciones, contratos, boletas, partidas registrales o correos. Si no tiene todo, no se preocupe; le indicaremos qué falta.',
   },
   {
-    q: '¿Atienden casos fuera de Lima?',
-    a: 'Sí, cuando el caso lo permite. Muchas diligencias y audiencias hoy se realizan de forma virtual. Lo coordinamos con usted en la primera consulta.',
+    q: '¿Atienden casos fuera de Huánuco?',
+    a: 'Sí. Atendemos casos en todo el Perú, tanto de forma presencial según la complejidad como mediante audiencias y diligencias virtuales.',
   },
 ];
