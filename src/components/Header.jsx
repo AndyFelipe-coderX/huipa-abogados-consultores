@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { Menu, X, Sun, Moon, Phone } from 'lucide-react';
-import { SITE } from '../data/site';
+import { SITE, CONTACT_READY, SOON } from '../data/site';
 import { useTheme } from '../hooks/useTheme';
 
 const NAV = [
@@ -77,13 +77,17 @@ export default function Header() {
       <div className="hidden border-b border-line bg-paper-2 text-[0.78rem] text-ink-2 md:block">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-2">
           <p>Atención exclusiva a personas naturales · {SITE.city}</p>
-          <a
-            href={`tel:${SITE.phoneHref}`}
-            className="inline-flex items-center gap-2 transition-colors hover:text-accent"
-          >
-            <Phone size={13} strokeWidth={1.5} />
-            {SITE.phoneDisplay}
-          </a>
+          {CONTACT_READY ? (
+            <a
+              href={`tel:${SITE.phoneHref}`}
+              className="inline-flex items-center gap-2 transition-colors hover:text-accent"
+            >
+              <Phone size={13} strokeWidth={1.5} />
+              {SITE.phoneDisplay}
+            </a>
+          ) : (
+            <span className="italic text-muted">Línea de atención: {SOON.toLowerCase()}</span>
+          )}
         </div>
       </div>
 
@@ -161,9 +165,15 @@ export default function Header() {
               <a href="#contacto" onClick={() => setOpen(false)} className="btn-primary w-full">
                 Agendar consulta
               </a>
-              <a href={`tel:${SITE.phoneHref}`} className="btn-ghost w-full">
-                <Phone size={15} strokeWidth={1.5} /> {SITE.phoneDisplay}
-              </a>
+              {CONTACT_READY ? (
+                <a href={`tel:${SITE.phoneHref}`} className="btn-ghost w-full">
+                  <Phone size={15} strokeWidth={1.5} /> {SITE.phoneDisplay}
+                </a>
+              ) : (
+                <div className="btn-ghost w-full text-muted italic text-center justify-center">
+                  Línea telefónica: {SOON.toLowerCase()}
+                </div>
+              )}
             </div>
           </motion.div>
         )}

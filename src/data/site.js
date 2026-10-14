@@ -15,6 +15,11 @@ export const SITE = {
   hours: 'Lunes a viernes, 9:00 a 18:00',
 };
 
+// Cambiar a `true` cuando el estudio tenga teléfono, WhatsApp y correo reales.
+// Mientras sea `false`, la web muestra "Próximamente" y no envía nada a nadie.
+export const CONTACT_READY = false;
+export const SOON = 'Próximamente';
+
 export const waLink = (message) =>
   `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(message)}`;
 

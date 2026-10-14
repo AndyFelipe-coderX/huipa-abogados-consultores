@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Phone, Mail, MapPin, Clock, ArrowRight } from 'lucide-react';
 import Reveal from './Reveal';
-import { SITE, PRACTICE_AREAS, waLink } from '../data/site';
+import { SITE, PRACTICE_AREAS, waLink, CONTACT_READY, SOON } from '../data/site';
 
 export default function Contacto() {
   const [form, setForm] = useState({
@@ -23,8 +23,18 @@ export default function Contacto() {
   };
 
   const info = [
-    { icon: Phone, label: 'Teléfono', value: SITE.phoneDisplay, href: `tel:${SITE.phoneHref}` },
-    { icon: Mail, label: 'Correo', value: SITE.email, href: `mailto:${SITE.email}` },
+    {
+      icon: Phone,
+      label: 'Teléfono',
+      value: CONTACT_READY ? SITE.phoneDisplay : SOON,
+      href: CONTACT_READY ? `tel:${SITE.phoneHref}` : null
+    },
+    {
+      icon: Mail,
+      label: 'Correo',
+      value: CONTACT_READY ? SITE.email : SOON,
+      href: CONTACT_READY ? `mailto:${SITE.email}` : null
+    },
     { icon: MapPin, label: 'Oficina', value: SITE.address },
     { icon: Clock, label: 'Horario', value: SITE.hours },
   ];
@@ -122,10 +132,21 @@ export default function Contacto() {
               />
             </label>
 
-            <button type="submit" className="btn-primary group mt-10 w-full">
-              Enviar por WhatsApp
-              <ArrowRight size={16} strokeWidth={1.5} className="transition-transform group-hover:translate-x-0.5" />
-            </button>
+            {CONTACT_READY ? (
+              <button type="submit" className="btn-primary group mt-10 w-full">
+                Enviar por WhatsApp
+                <ArrowRight size={16} strokeWidth={1.5} className="transition-transform group-hover:translate-x-0.5" />
+              </button>
+            ) : (
+              <div className="mt-10 rounded border border-line bg-paper-2 p-4 text-center">
+                <p className="font-serif text-lg font-light italic text-accent">
+                  Canal de WhatsApp: {SOON.toLowerCase()}
+                </p>
+                <p className="mt-1 text-xs text-muted">
+                  Estamos habilitando las líneas oficiales de comunicación del estudio.
+                </p>
+              </div>
+            )}
             <p className="mt-4 text-center text-[0.78rem] text-muted">
               La información que nos comparta es confidencial y está protegida por el secreto
               profesional.

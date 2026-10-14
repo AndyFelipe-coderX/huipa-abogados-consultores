@@ -1,6 +1,6 @@
 import { Phone, ArrowUpRight } from 'lucide-react';
 import Reveal from './Reveal';
-import { SITE, waLink } from '../data/site';
+import { SITE, waLink, CONTACT_READY, SOON } from '../data/site';
 
 export default function Urgencia() {
   return (
@@ -13,6 +13,14 @@ export default function Urgencia() {
             <em className="italic">No declare sin abogado.</em>
           </p>
         </Reveal>
+        {!CONTACT_READY ? (
+          <Reveal delay={0.08} className="lg:col-span-4">
+            <div className="border border-on-band/35 px-6 py-5 text-center">
+              <p className="text-[0.7rem] uppercase tracking-[0.28em] opacity-70">Línea de atención</p>
+              <p className="mt-2 font-serif text-2xl italic">{SOON}</p>
+            </div>
+          </Reveal>
+        ) : (
         <Reveal delay={0.08} className="flex flex-col gap-3 sm:flex-row lg:col-span-4 lg:flex-col lg:items-stretch">
           <a
             href={`tel:${SITE.phoneHref}`}
@@ -31,6 +39,7 @@ export default function Urgencia() {
             <ArrowUpRight size={16} strokeWidth={1.5} />
           </a>
         </Reveal>
+        )}
       </div>
     </section>
   );

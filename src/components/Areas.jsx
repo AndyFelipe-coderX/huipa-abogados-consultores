@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { Plus, ArrowUpRight } from 'lucide-react';
 import Reveal from './Reveal';
-import { PRACTICE_AREAS, waLink } from '../data/site';
+import { PRACTICE_AREAS, waLink, CONTACT_READY, SOON } from '../data/site';
 
 export default function Areas() {
   const [open, setOpen] = useState(PRACTICE_AREAS[0].id);
@@ -98,6 +98,7 @@ export default function Areas() {
                             Para quién
                           </p>
                           <p className="mt-3 text-[0.95rem] leading-relaxed text-ink">{a.forWhom}</p>
+                          {CONTACT_READY ? (
                           <a
                             href={waLink(a.whatsapp)}
                             target="_blank"
@@ -107,6 +108,11 @@ export default function Areas() {
                             Consultar sobre este tema
                             <ArrowUpRight size={15} strokeWidth={1.5} />
                           </a>
+                          ) : (
+                            <p className="mt-6 text-[0.85rem] italic text-muted">
+                              Consultas en línea: {SOON.toLowerCase()}
+                            </p>
+                          )}
                         </div>
                       </div>
                     </motion.div>

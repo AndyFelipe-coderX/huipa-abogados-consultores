@@ -1,5 +1,5 @@
 import { Wordmark } from './Header';
-import { SITE, PRACTICE_AREAS } from '../data/site';
+import { SITE, PRACTICE_AREAS, CONTACT_READY, SOON } from '../data/site';
 
 export default function Footer() {
   return (
@@ -30,16 +30,22 @@ export default function Footer() {
           <div className="md:col-span-3">
             <p className="text-[0.7rem] uppercase tracking-[0.24em] text-muted">Contacto</p>
             <ul className="mt-5 space-y-2.5 text-[0.92rem] text-ink-2">
-              <li>
-                <a href={`tel:${SITE.phoneHref}`} className="link-underline hover:text-ink">
-                  {SITE.phoneDisplay}
-                </a>
-              </li>
-              <li>
-                <a href={`mailto:${SITE.email}`} className="link-underline hover:text-ink">
-                  {SITE.email}
-                </a>
-              </li>
+              {CONTACT_READY ? (
+                <>
+                  <li>
+                    <a href={`tel:${SITE.phoneHref}`} className="link-underline hover:text-ink">
+                      {SITE.phoneDisplay}
+                    </a>
+                  </li>
+                  <li>
+                    <a href={`mailto:${SITE.email}`} className="link-underline hover:text-ink">
+                      {SITE.email}
+                    </a>
+                  </li>
+                </>
+              ) : (
+                <li className="italic text-muted">Teléfono y correo: {SOON.toLowerCase()}</li>
+              )}
               <li>{SITE.city}</li>
             </ul>
           </div>

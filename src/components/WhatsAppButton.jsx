@@ -1,10 +1,14 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { MessageCircle } from 'lucide-react';
-import { waLink } from '../data/site';
+import { waLink, CONTACT_READY } from '../data/site';
+
+export default function WhatsAppButton() {
+  return CONTACT_READY ? <FloatingButton /> : null;
+}
 
 // Aparece recién al hacer scroll, para no tapar el contenido inicial.
-export default function WhatsAppButton() {
+function FloatingButton() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
