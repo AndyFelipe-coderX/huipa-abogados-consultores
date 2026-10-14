@@ -53,7 +53,7 @@ export default function Footer() {
 
         <div className="flex flex-col gap-3 pt-8 text-[0.78rem] text-muted md:flex-row md:items-center md:justify-between">
           <p>
-            © {new Date().getFullYear()} {SITE.name} · {SITE.tagline}
+            © {new Date().getFullYear()} {SITE.name} · {SITE.tagline} · Defensa de Personas Naturales
           </p>
           <p className="max-w-md md:text-right">
             El contenido de este sitio es informativo y no constituye asesoría legal.
