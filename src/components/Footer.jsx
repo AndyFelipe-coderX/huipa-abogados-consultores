@@ -9,8 +9,8 @@ export default function Footer() {
           <div className="md:col-span-5">
             <Wordmark />
             <p className="mt-6 max-w-sm text-[0.92rem] leading-relaxed text-ink-2">
-              Estudio jurídico dedicado a la defensa de personas naturales en materia penal,
-              policial, disciplinaria, constitucional, civil y laboral.
+              Estudio jurídico especializado en derecho penal, policial, disciplinario,
+              constitucional, civil y laboral.
             </p>
           </div>
 
@@ -53,7 +53,7 @@ export default function Footer() {
 
         <div className="flex flex-col gap-3 pt-8 text-[0.78rem] text-muted md:flex-row md:items-center md:justify-between">
           <p>
-            © {new Date().getFullYear()} {SITE.name} · {SITE.tagline} · Defensa de Personas Naturales
+            © {new Date().getFullYear()} {SITE.name} · {SITE.tagline}
           </p>
           <p className="max-w-md md:text-right">
             El contenido de este sitio es informativo y no constituye asesoría legal.

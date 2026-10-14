@@ -167,10 +167,6 @@ export const STEPS = [
 // ============================================================
 export const FAQS = [
   {
-    q: '¿Atienden a empresas?',
-    a: 'No desde este estudio. Juipa & Asociados atiende únicamente a personas naturales. Si su consulta es de una empresa o persona jurídica, la derivamos a la firma con la que trabajamos para la defensa corporativa.',
-  },
-  {
     q: 'Me llegó una citación de la policía o de la fiscalía. ¿Qué hago?',
     a: 'No acuda a declarar solo. Comuníquese con nosotros antes de la fecha indicada: revisaremos la citación, los hechos que se le atribuyen y prepararemos su declaración. Lo que diga en esa primera diligencia puede pesar en todo el proceso.',
   },

@@ -76,7 +76,7 @@ export default function Header() {
       {/* Barra superior */}
       <div className="hidden border-b border-line bg-paper-2 text-[0.78rem] text-ink-2 md:block">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-2">
-          <p>Atención exclusiva a personas naturales · {SITE.city}</p>
+          <p>Penal · Policial · Constitucional · Civil · Laboral — {SITE.city}</p>
           {CONTACT_READY ? (
             <a
               href={`tel:${SITE.phoneHref}`}

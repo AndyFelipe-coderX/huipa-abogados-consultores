@@ -1,6 +1,6 @@
 # Juipa & Asociados · Abogados y Consultores
 
-Sitio web del estudio jurídico **Juipa & Asociados**, dedicado exclusivamente a la defensa de **personas naturales**. Las consultas de personas jurídicas se derivan a la firma aliada.
+Sitio web del estudio jurídico **Juipa & Asociados**.
 
 ## Áreas de práctica
 - Derecho Penal y Procesal Penal
